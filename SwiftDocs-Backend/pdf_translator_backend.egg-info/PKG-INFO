@@ -1,0 +1,8 @@
+Metadata-Version: 2.2
+Name: pdf-translator-backend
+Version: 0.1.0
+Requires-Dist: fastapi
+Requires-Dist: pydantic
+Requires-Dist: pydantic-settings
+Requires-Dist: python-multipart
+Dynamic: requires-dist

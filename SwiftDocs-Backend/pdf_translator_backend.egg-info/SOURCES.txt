@@ -1,0 +1,9 @@
+setup.py
+pdf_translator_backend.egg-info/PKG-INFO
+pdf_translator_backend.egg-info/SOURCES.txt
+pdf_translator_backend.egg-info/dependency_links.txt
+pdf_translator_backend.egg-info/requires.txt
+pdf_translator_backend.egg-info/top_level.txt
+tests/test_ocr.py
+tests/test_pdf.py
+tests/test_translation.py
