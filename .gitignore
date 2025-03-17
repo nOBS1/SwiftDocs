@@ -49,6 +49,4 @@ SwiftDocs-Frontend/.next/
 
 # 大文件
 *.pyd
-*.node 
-SwiftDocs-Frontend/node_modules/
-SwiftDocs-Backend/venv/
+*.node
