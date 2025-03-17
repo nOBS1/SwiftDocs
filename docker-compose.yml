@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # 后端服务
+  backend:
+    build: ./SwiftDocs-Backend
+    container_name: swiftdocs-backend
+    restart: always
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./SwiftDocs-Backend/uploads:/app/uploads
+      - ./SwiftDocs-Backend/.env:/app/.env
+    depends_on:
+      - redis
+    networks:
+      - swiftdocs-network
+
+  # 前端服务
+  frontend:
+    build: ./SwiftDocs-Frontend
+    container_name: swiftdocs-frontend
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000/api/v1
+    depends_on:
+      - backend
+    networks:
+      - swiftdocs-network
+
+  # Redis服务
+  redis:
+    image: redis:alpine
+    container_name: swiftdocs-redis
+    restart: always
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - swiftdocs-network
+
+volumes:
+  redis-data:
+
+networks:
+  swiftdocs-network:
+    driver: bridge 
